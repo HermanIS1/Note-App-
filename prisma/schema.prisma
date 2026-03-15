@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Notebook {
+ id        Int    @id @default(autoincrement())
+ title     String
+ theme     String @default("black")
+ lastPage  Int?
+ pages     Page[]
+}
+
+model Page {
+  id         Int      @id @default(autoincrement())
+  pageNumber Int
+  image      String?
+
+  notebookId Int
+  notebook   Notebook @relation(fields: [notebookId], references: [id], onDelete: Cascade)
+}
