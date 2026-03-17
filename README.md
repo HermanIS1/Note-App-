@@ -1,4 +1,4 @@
-## Notes App
+## Notes App :d
 
 Prosta aplikacja do rysowania notatek w zeszytach (Next.js + Prisma).
 
